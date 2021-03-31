@@ -1,1 +1,1 @@
-web gunicorn intcoal.wsgi:application --log-file -
+web gunicorn Icing.wsgi:application --log-file -
