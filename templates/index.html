@@ -14,6 +14,45 @@ body {
   box-sizing: border-box;
 }
 
+html {
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  header {
+    background: purple;
+    height: 100px;
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    margin: 0;
+  }
+
+  h2 {
+    text-align: center;
+    color: white;
+    line-height: 0;
+    margin: 0;
+  }
+
+  article {
+    padding: 10px;
+    margin: 10px;
+    background: aqua;
+  }
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 200px;
+}
+
 /* Remove margins and padding from the list */
 ul {
   margin: 0;
@@ -26,7 +65,7 @@ ul li {
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
-  background: #eee;
+  background: aqua;
   font-size: 18px;
   transition: 0.2s;
   
@@ -83,7 +122,7 @@ ul li.checked::before {
 
 /* Style the header */
 .header {
-  background-color: #329ba8;
+  background: purple;
   padding: 30px 40px;
   color: white;
   text-align: center;
@@ -111,7 +150,7 @@ input {
 .addBtn {
   padding: 10px;
   width: 25%;
-  background: #d9d9d9;
+  background: aqua;
   color: #555;
   float: left;
   text-align: center;
@@ -127,21 +166,62 @@ input {
 </style>
 </head>
 <body>
+<header>
+  <h1>Intcoal</h1>
+</header>
 
-<div id="myDIV" class="header">
-  <h2 style="margin:5px">Django To Do List App</h2>
-  <form action="" method="POST">
-    {% csrf_token %}
-    <input type="text" name="title" id="myInput" placeholder="Title...">
-    <button type="submit" class="addBtn">Add</button>
-  </form>
-</div>
+<section>
+<article>
+  <div id="myDIV" class="header">
+    <h2>Thoughts</h2><br>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="text" name="title" id="myInput" placeholder="Thought...">
+      <button type="submit" class="addBtn">+</button>
+    </form>
+  </div>
 
-<ul id="myUL">
-  {% for intcoal in intcoals reversed %}
-  <li>{{intcoal.title | title}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{intcoal.id}}">Delete</a></span></li>
-  {% endfor %}
-</ul>
+
+  <ul id="myUL">
+    {% for intcoal in intcoals reversed %}
+    <li>{{intcoal.title | title}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{intcoal.id}}">X</a></span></li>
+    {% endfor %}
+  </ul>
+</article>
+<article>
+  <div id="myDIV" class="header">
+    <h2>Structure</h2><br>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="text" name="title" id="myInput" placeholder="Habit...">
+      <button type="submit" class="addBtn">+</button>
+    </form>
+  </div>
+
+
+  <ul id="myUL">
+    {% for intcoal in intcoals reversed %}
+    <li>{{intcoal.title | title}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{intcoal.id}}">X</a></span></li>
+    {% endfor %}
+  </ul>
+</article>
+<article>
+  <div id="myDIV" class="header">
+    <h2>To do</h2><br>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="text" name="title" id="myInput" placeholder="Task...">
+      <button type="submit" class="addBtn">+</button>
+    </form>
+  </div>
+
+
+  <ul id="myUL">
+    {% for intcoal in intcoals reversed %}
+    <li>{{intcoal.title | title}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{intcoal.id}}">X</a></span></li>
+    {% endfor %}
+  </ul>
+</article>
 
 </body>
 </html>
