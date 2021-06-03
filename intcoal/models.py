@@ -1,8 +1,8 @@
 from django.db import models
 
 # Create your models here.
-class Intcoal(models.Model):
-	title = models.CharField(max_length=1000)
-
+class tasks(models.Model):
+	task_name = models.CharField(max_length=1000)
+	
 	def _str_(self):
-		return self.title
+		return self.task_name

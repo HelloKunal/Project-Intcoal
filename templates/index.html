@@ -176,49 +176,39 @@ input {
     <h2>Thoughts</h2><br>
     <form action="" method="POST">
       {% csrf_token %}
-      <input type="text" name="title" id="myInput" placeholder="Thought...">
+      <input type="text" name="title" id="myThought" placeholder="Thought...">
       <button type="submit" class="addBtn">+</button>
     </form>
   </div>
 
 
-  <ul id="myUL">
-    {% for intcoal in intcoals reversed %}
-    <li>{{intcoal.title | title}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{intcoal.id}}">X</a></span></li>
-    {% endfor %}
-  </ul>
 </article>
 <article>
   <div id="myDIV" class="header">
     <h2>Structure</h2><br>
     <form action="" method="POST">
       {% csrf_token %}
-      <input type="text" name="title" id="myInput" placeholder="Habit...">
+      <input type="text" name="title" id="myHabit" placeholder="Habit...">
       <button type="submit" class="addBtn">+</button>
     </form>
   </div>
 
 
-  <ul id="myUL">
-    {% for intcoal in intcoals reversed %}
-    <li>{{intcoal.title | title}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{intcoal.id}}">X</a></span></li>
-    {% endfor %}
-  </ul>
 </article>
 <article>
   <div id="myDIV" class="header">
     <h2>To do</h2><br>
     <form action="" method="POST">
       {% csrf_token %}
-      <input type="text" name="title" id="myInput" placeholder="Task...">
+      <input type="text" name="task" id="myTask" placeholder="Task...">
       <button type="submit" class="addBtn">+</button>
     </form>
   </div>
 
 
   <ul id="myUL">
-    {% for intcoal in intcoals reversed %}
-    <li>{{intcoal.title | title}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{intcoal.id}}">X</a></span></li>
+    {% for task in tasks reversed %}
+    <li>{{task.task_name}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{task.id}}">X</a></span></li>
     {% endfor %}
   </ul>
 </article>
