@@ -176,10 +176,16 @@ input {
     <h2>Thoughts</h2><br>
     <form action="" method="POST">
       {% csrf_token %}
-      <input type="text" name="title" id="myThought" placeholder="Thought...">
+      <input type="text" name="thought" id="myThought" placeholder="Thought...">
       <button type="submit" class="addBtn">+</button>
     </form>
   </div>
+
+  <ul id="myUL">
+    {% for thought in thoughts reversed %}
+    <li>{{thought.thought_name}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/th/{{thought.id}}">X</a></span></li>
+    {% endfor %}
+  </ul>
 
 
 </article>
@@ -188,10 +194,16 @@ input {
     <h2>Structure</h2><br>
     <form action="" method="POST">
       {% csrf_token %}
-      <input type="text" name="title" id="myHabit" placeholder="Habit...">
+      <input type="text" name="habit" id="myHabit" placeholder="Habit...">
       <button type="submit" class="addBtn">+</button>
     </form>
   </div>
+
+  <ul id="myUL">
+    {% for habit in habits reversed %}
+    <li>{{habit.habit_name}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/ha/{{habit.id}}">X</a></span></li>
+    {% endfor %}
+  </ul>
 
 
 </article>
@@ -208,7 +220,7 @@ input {
 
   <ul id="myUL">
     {% for task in tasks reversed %}
-    <li>{{task.task_name}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/{{task.id}}">X</a></span></li>
+    <li>{{task.task_name}} <span class="close"><a style="text-decoration: none; color: black;" href="delete/ta/{{task.id}}">X</a></span></li>
     {% endfor %}
   </ul>
 </article>
